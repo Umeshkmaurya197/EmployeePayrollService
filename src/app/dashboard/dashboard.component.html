@@ -1,0 +1,45 @@
+
+<div class="main-content">
+  <div class="header-content">
+    <div class="emp-detail-text">Employee Details<div class="emp-count">{{employeesCount}}</div>
+    </div>
+    <mat-icon class="search-icon" alt="icon not found">search</mat-icon>
+    <button routerLink="/form" class="add-button" mat-raised-button><mat-icon>person_add</mat-icon>  Add User</button>
+  </div>
+  <div class="table-main">
+    <table  class="table" id="display">
+      <tr>
+        <th>ID</th>
+        <th>Img</th>
+        <th>NAME</th>
+        <th>GENDER</th>
+        <th>DEPARTMENT</th>
+        <th>SALARY</th>
+        <th>START DATE</th>
+        <th>ACTION</th>
+      </tr>
+      <tr *ngFor="let emp of employees">
+        <td>{{ emp.empId }}</td>
+        <td>
+          <img
+            [src]="emp.image"
+            style="height: 50px; border-radius: 28px"
+            alt="not found"
+          />
+        </td>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.gender }}</td>
+        <td>{{ emp.department }}</td>
+        <td>{{ emp.salary }}</td>
+        <td>{{ emp.startDate | date }}</td>
+        <td>
+          <mat-icon class="action-edit-icn" (click)="editById(emp.empId)">edit</mat-icon>
+          <mat-icon class="action-delete-icn" (click)="deleteEmployeeByIdOnly(emp.empId)">delete_forever</mat-icon>
+        </td>
+      </tr>
+    </table>
+   </div>
+</div>
+
+
+

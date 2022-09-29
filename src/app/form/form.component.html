@@ -1,0 +1,85 @@
+<div class="form-page">
+  <mat-card class="form-card">
+    <div>
+      <h1 class="form-heading">Employee Payroll Form</h1>
+    </div>
+    <form class="form-group" >
+      <!-- input field for user input -->
+      <div>
+        <mat-label class="input-label" >Name  </mat-label>
+        <mat-form-field class="input-field" appearance="outline">
+          <input matInput [(ngModel)]="employee.name"  [ngModelOptions]="{standalone: true}" ngDefaultControl name="username" >
+        </mat-form-field>
+      </div>
+      <!-- radio buttons to select profile picture  -->
+      <div>
+        <mat-label class="input-label"> Profile image  </mat-label>
+        <mat-radio-group class="input-radio-btn" aria-label="Select an option" [(ngModel)]="employee.image" [ngModelOptions]="{standalone: true}" name="image" ngDefaultControl>
+          <mat-radio-button class="input-btn" value="../assets/img/User1.png"><img class="input-img"src="../assets/img/User1.png" alt="NotFound"/></mat-radio-button>
+          <mat-radio-button class="input-btn" value="../assets/img/User2.png"><img class="input-img"src="../assets/img/User2.png" alt="NotFound"/></mat-radio-button>
+          <mat-radio-button class="input-btn" value="../assets/img/User3.png"><img class="input-img"src="../assets/img/User3.png" alt="NotFound"/></mat-radio-button>
+          <mat-radio-button class="input-btn" value="../assets/img/User4.png"><img class="input-img"src="../assets/img/User4.png" alt="NotFound"/></mat-radio-button>
+        </mat-radio-group>
+      </div>
+    <!-- radio button for select employee gender  -->
+      <div>
+        <mat-label class="input-label">Gender  </mat-label>
+        <mat-radio-group class="input-gen-btn" aria-label="Select an option" [(ngModel)]="employee.gender" [ngModelOptions]="{standalone: true}" ngDefaultControl>
+          <mat-radio-button class="input-btn" value="Male">Male</mat-radio-button>
+          <mat-radio-button class="input-btn" value="Female">Female</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <!-- checkbox for choose departments where employee working  -->
+     <div>
+        <section class="input-depart-sec ">
+          <mat-label class="input-label " name="department" [(ngModel)]="employee.department" ngDefaultControl> Department  </mat-label>
+          <div *ngFor="let depart of departments;let i=index" class="input-depart">
+            <mat-checkbox [value]="this.employee.department[i]" (change)="onChange(depart.name)" (ngModel)="depart" [ngModelOptions]="{standalone: true}" class="input-depart">{{depart.name}}</mat-checkbox>
+          </div>
+        </section>
+      </div>
+      <!-- Slider with values  for taking input for salary -->
+      <!-- <div>
+        <mat-label class="input-label"> Salary  </mat-label>
+        <mat-slider class ="input-salary" thumbLabel tickInterval="1"> Salary </mat-slider>
+        <mat-slider class ="input-salary" thumbLabel [displayWith]="formatLabel" tickInterval="1000" step="1000" min="0" max="100000" aria-label="units"></mat-slider>
+      </div> -->
+      <!-- selector for select salary range in between given salary  -->
+      <div>
+        <mat-label class="input-label"> Salary  </mat-label>
+        <mat-form-field class="input-salary" appearance="outline" >
+          <mat-label class="selector-font" >Select Salary </mat-label>
+          <mat-select [(ngModel)]="employee.salary" [ngModelOptions]="{standalone: true}"ngDefaultControl>
+            <mat-option *ngFor="let salary of salarys" [value]="salary.value">{{salary.viewValue}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <!-- date picker for getting input for start date in company   -->
+      <div>
+        <mat-label class="input-label"> Start Date </mat-label>
+        <mat-form-field class="input-date" appearance="outline">
+          <mat-label  class="date-font">Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="employee.startDate" [ngModelOptions]="{standalone: true}"ngDefaultControl/>
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <!-- text field for take input in text as notes   -->
+      <div>
+        <mat-label class="input-label"> Notes </mat-label>
+        <mat-form-field class="input-notes" appearance="outline">
+          <mat-label class="input-text-area">Textarea</mat-label>
+          <textarea matInput [(ngModel)]="employee.notes" [ngModelOptions]="{standalone: true}"ngDefaultControl></textarea>
+        </mat-form-field>
+      </div>
+
+      <!-- button for cancel , reset and submit form  -->
+      <button mat-raised-button class="cancel-form-btn" color="primary" type="cancel" (click)="onCancelClick()">Cancel</button>
+      <button mat-raised-button class="reset-form-btn" color="primary" type="reset">Reset</button>
+      <button mat-raised-button class="submit-form-btn" color="primary" *ngIf="this.Id==null" type="submit" (click)="onSubmit()">Submit</button>
+      <button mat-raised-button class="submit-form-btn" color="primary" *ngIf="this.Id!=null" type="submit" (click)="updateEmployeeByIdOnly()">Update</button>
+    </form>
+  </mat-card>
+</div>
+

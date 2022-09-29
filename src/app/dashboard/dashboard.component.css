@@ -1,0 +1,127 @@
+.search-icon{
+  transform: scale(2);
+  height: 40px;
+  width: 40px;
+  margin-left: 60%;
+  padding: 10px 10px;
+  border-radius: 20px;
+}
+.search-image-icon{
+  height: 40px;
+  width: 40px;
+  margin-left: 63%;
+  border-radius: 20px;
+}
+* {
+  box-sizing: border-box;
+}
+
+.add-button {
+  font: normal normal normal 22px/29px Roboto;
+  letter-spacing: 0px;
+  color: white;
+  opacity: 1;
+  background-color: #82A70C;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 18px;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.add-button:hover{
+  background-color:rgb(24, 168, 50);
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh-80px);
+  background-color: #F7F7F7;
+  padding: 8px 0 0px;
+  box-sizing: border-box;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  padding:10px 10px 10px 10px;
+        /* up right down left  */
+}
+
+.emp-detail-text {
+  font: normal normal normal bold 24px/25px Roboto;
+  letter-spacing: 0px;
+  color: #42515f;
+  opacity: 1;
+}
+
+.emp-count {
+  background-color: #82a70c;
+  color: #ffffff;
+  border-radius: 40%;
+  font-size: 16px;
+  width: 26px;
+  margin-left: 3px;
+  text-align: center;
+  display: inline-block;
+}
+
+.table-main {
+  width: 90%;
+  margin: 0 auto;
+  overflow: auto;
+  overflow-x: auto;
+}
+
+.table {
+  background-color: #42515f ;
+  width: 100%;
+  border-spacing: 0 1px;
+  border-radius: 6px;
+  min-width: 00px;
+}
+
+td,th {
+  text-align: left;
+  padding: 7px ;
+}
+th {
+  background: #42515f;
+  text-align: left;
+  font: normal normal normal 18px/24px Roboto;
+  color: white;
+  text-transform: uppercase;
+  padding: 13px;
+  border-radius: 10px;
+}
+
+tr:not(:first-child) {
+  background: white;
+  border: 1px solid #e3e3e3;
+  border-radius: 3px;
+}
+
+td {
+  font: normal normal normal 16px/10px Roboto;
+  letter-spacing: 0px;
+  color: #3d3d3d;
+  opacity: 1;
+  text-align: inherit;
+}
+
+.action-edit-icn{
+color:rgb(84, 193, 84);
+margin-left: 10px;
+margin-right: 15px;
+}
+.action-delete-icn{
+  color:rgb(212, 6, 6);
+}
